@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{1b8e8ad0-0d20-428d-91a5-bae8af5452a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{626e9c61-4a41-4540-99a7-e661def64ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Terrain">
+      <UniqueIdentifier>{edf4839b-f5ef-4c79-85e5-13318108ce11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GFXE">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Entities\Hitbox">
+      <UniqueIdentifier>{a6488bbd-d600-4d7c-bd3a-21b25166ce25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Player">
+      <UniqueIdentifier>{0155c96f-2f22-452c-a3a6-d9dcdbbee180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator">
+      <UniqueIdentifier>{abb5de80-61b6-47b2-b6ef-6680954beaa9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\AnimatorNode">
+      <UniqueIdentifier>{d0172f0a-05fc-4220-b35f-75cec2ed1eb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\AnimatorConnection">
+      <UniqueIdentifier>{d82c65eb-709a-4f51-a446-5ef62c425449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\Animation">
+      <UniqueIdentifier>{960a50a9-ecff-4c30-8e51-8140c336a8a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\Animation\Frame">
+      <UniqueIdentifier>{0ca06802-03d3-4fb4-b9be-44fef2d0c71d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\AnimatorConnection\ConnectionCondition">
+      <UniqueIdentifier>{8a08355a-55f4-43aa-88ca-409782d43bd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Animator\AnimatorVariables">
+      <UniqueIdentifier>{c4dc80f8-84be-4084-8555-08cf1f6432fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Containers">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Entities\EntityAnimated">
+      <UniqueIdentifier>{6737f43d-7798-4ffa-b00b-f555176c8d6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Bonus">
+      <UniqueIdentifier>{af622052-9f92-4bde-ad26-ee61f1ddcd15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GFXE\BufferQueueElement">
+      <UniqueIdentifier>{4360c06a-4567-44a5-b299-50edde413896}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Entities\Animator\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Entities\Animator\Animation\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Entities\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Scene\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="GFXE.cpp">
+      <Filter>GFXE</Filter>
+    </ClCompile>
+    <ClCompile Include="Hitbox.cpp">
+      <Filter>Entities\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Entities\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatorNode.cpp">
+      <Filter>Entities\Animator\AnimatorNode</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatorConnection.cpp">
+      <Filter>Entities\Animator\AnimatorConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatorVariables.cpp">
+      <Filter>Entities\Animator\AnimatorVariables</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionCondition.cpp">
+      <Filter>Entities\Animator\AnimatorConnection\ConnectionCondition</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityAnimated.cpp">
+      <Filter>Entities\EntityAnimated</Filter>
+    </ClCompile>
+    <ClCompile Include="BufferQueueElement.cpp">
+      <Filter>GFXE\BufferQueueElement</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GFXE.h">
+      <Filter>GFXE</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Entities\Animator\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Frame.h">
+      <Filter>Entities\Animator\Animation\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Entities\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Scene\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Containers.h">
+      <Filter>Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Hitbox.h">
+      <Filter>Entities\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Entities\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatorNode.h">
+      <Filter>Entities\Animator\AnimatorNode</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatorConnection.h">
+      <Filter>Entities\Animator\AnimatorConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatorVariables.h">
+      <Filter>Entities\Animator\AnimatorVariables</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionCondition.h">
+      <Filter>Entities\Animator\AnimatorConnection\ConnectionCondition</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityAnimated.h">
+      <Filter>Entities\EntityAnimated</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
+      <Filter>Entities\Bonus</Filter>
+    </ClInclude>
+    <ClInclude Include="BufferQueueElement.h">
+      <Filter>GFXE\BufferQueueElement</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
