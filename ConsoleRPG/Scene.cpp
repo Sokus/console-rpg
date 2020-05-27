@@ -2,7 +2,7 @@
 
 Scene::Scene(Player player, std::string terrain_color_data_path, std::string terrain_hitbox_data_path, std::string terrain_shadow_data_path)
 {
-	this->player = *(new Player(player));
+	this->player = player;
 	this->terrain = *(new Terrain(terrain_color_data_path, terrain_hitbox_data_path, terrain_shadow_data_path));
 
 	this->player.SetID(1);

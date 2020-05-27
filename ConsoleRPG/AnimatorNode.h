@@ -1,3 +1,6 @@
+// This class is a part of Animator Tree, it holds its own animation (or 4 animations, if its directional).
+// For Animator Node to be active it needs to be activated manually or by Animator Connection.
+
 #pragma once
 #include "AnimatorVariables.h"
 #include "Animation.h"

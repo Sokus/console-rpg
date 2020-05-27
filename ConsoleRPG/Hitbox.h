@@ -1,3 +1,5 @@
+// This class gives physical properties to Entities. It checks for collisions.
+
 #pragma once
 #include "Containers.h"
 #include "Bonus.h"

@@ -1,3 +1,5 @@
+// This is a basic class for every Entity in the game, nothing can exist without it - it manages hitboxes, lets Enities move.
+
 #pragma once
 #include <ctime>
 

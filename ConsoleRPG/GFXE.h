@@ -1,3 +1,5 @@
+// This class is responsible for drawing images on the screen. It has two buffer arrays - front and back buffers - which hold all the pixel values.
+
 #pragma once
 #include <Windows.h>
 #include <iostream>

@@ -1,3 +1,6 @@
+// This class connects two animation nodes (look at AnimatorNode.h), it has set of conditions that need to be met in order to jump from one node to another.
+// This class is a part of bigger structure I call Animator Tree, with many complex behaviours. I think you could call it a State Machine.
+
 #pragma once
 #include <vector>
 #include <string>

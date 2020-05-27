@@ -1,3 +1,6 @@
+// This is custom Variable I made for Animator Tree. It lets you create variables that can be checked and compared by Animator Connections and used by Animator Conditions.
+// Apart from standard types Bool, Float and String there is also new type Trigger, which is set to False after Condition it was used in was met. (look ConnectionCondition.h)
+
 #pragma once
 #include <string>
 

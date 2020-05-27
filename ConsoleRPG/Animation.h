@@ -1,3 +1,6 @@
+// This class is representing animations. It holds an array of frames which is being iterated through as the time goes. 
+// You can always call this class and it will return currently active frame.
+
 #pragma once
 #include <ctime>
 #include <string>

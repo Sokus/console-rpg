@@ -1,3 +1,5 @@
+// This class is a placeholder for future mechanics.
+
 #pragma once
 #include <vector>
 

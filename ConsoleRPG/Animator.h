@@ -1,3 +1,6 @@
+// This class is a heart of Animator Tree, it uses AnimatorVariables.h, AnimatorNode.h and AnimatorConnection.h to manage which animation is played and when. 
+// You can set whatever conditions you want to whatever animations you have, you can add them on the fly (although you can't delete them).
+
 #pragma once
 #include <vector>
 #include <string>

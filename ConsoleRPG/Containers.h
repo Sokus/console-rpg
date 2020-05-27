@@ -1,3 +1,5 @@
+// This class holds structs and/or classes I couldn't fit in other files
+
 #pragma once
 #include <iostream>
 

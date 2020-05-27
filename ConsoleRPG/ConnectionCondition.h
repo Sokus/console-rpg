@@ -1,3 +1,5 @@
+// This class is used to descrive conditions needed for animation node connection to be activated (look at AnimatorConnection.h)
+
 #pragma once
 #include <vector>
 #include <string>

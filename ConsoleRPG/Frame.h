@@ -1,3 +1,5 @@
+// This class is used to represent one animation frame, typically an array with color IDs
+
 #pragma once
 #include <vector>
 
