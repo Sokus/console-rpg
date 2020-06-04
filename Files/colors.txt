@@ -1,0 +1,7 @@
+718 - skin
+358 - dark skin
+4   - red
+316  - dark red
+368 - sword
+623 - dark sword
+15  - white
