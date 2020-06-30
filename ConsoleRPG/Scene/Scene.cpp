@@ -1,31 +1,19 @@
 #include "Scene.h"
 
-Scene::Scene(Player player, std::string terrain_color_data_path, std::string terrain_hitbox_data_path, std::string terrain_shadow_data_path)
+Scene::Scene(Player* player, std::string terrain_color_data_path, std::string terrain_hitbox_data_path, std::string terrain_shadow_data_path)
 {
 	this->player = player;
 	this->terrain = *(new Terrain(terrain_color_data_path, terrain_hitbox_data_path, terrain_shadow_data_path));
-
-	this->player.SetID(1);
-    EntityAnimated tree("../Files/pink_tree.txt");
-	tree.SetPosition({ 52,45 });
-	tree.SetID(2);
-	tree.SetHitboxCorners(0, { {-1,0},{2,1} });
-	animated_entities.emplace_back(tree);
 };
 
 void Scene::SetPointers()
 {
 	entity_pointers.clear();
-	entity_pointers.emplace_back(&player);
+    entity_pointers.emplace_back(player);
 	for (auto& animated_entity : animated_entities)
 	{
 		entity_pointers.emplace_back(&animated_entity);
 	}
-};
-
-vector2i Scene::GetPlayerPosition()
-{
-	return player.GetPosition();
 };
 
 std::vector<BufferQueueElement>& Scene::GetBufferQueue()
@@ -38,14 +26,14 @@ Frame& Scene::GetColorData()
 	return terrain.GetColorData();
 };
 
-Frame& Scene::GetHitboxData()
-{
-	return terrain.GetHitboxData();
-};
-
 std::vector<vector2i>& Scene::GetShadowData()
 {
-	return terrain.GetShadowData();
+    return terrain.GetShadowData();
+}
+
+void Scene::AddEntityAnimated(const EntityAnimated &entityAnimated)
+{
+    animated_entities.emplace_back(entityAnimated);
 };
 
 void Scene::UpdateBufferQueue()

@@ -19,6 +19,7 @@ SOURCES += \
         GFXE/BufferQueueElement.cpp \
         GFXE/GFXE.cpp \
         Scene/Scene.cpp \
+        Scene/SceneManager.cpp \
         Scene/Terrain.cpp \
         main.cpp
 
@@ -40,6 +41,7 @@ HEADERS += \
     GFXE/BufferQueueElement.h \
     GFXE/GFXE.h \
     Scene/Scene.h \
-    Scene/Terrain.h
+    Scene/SceneManager.h \
+    Scene/Terrain.h \
 
 

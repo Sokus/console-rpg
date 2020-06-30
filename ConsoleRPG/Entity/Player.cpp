@@ -26,58 +26,64 @@ void Player::InitialisePlayer()
                                                             "../Files/Player/Attacks/Attack4/attack_up_4.txt",
                                                             "../Files/Player/Attacks/Attack4/attack_left_4.txt",
                                                             "../Files/Player/Attacks/Attack4/attack_down_4.txt" };
+    // Add animations to the animator
+    {
+        for (auto& path : running_animations_paths) { animator.AddAnimation(path); }
 
-	//Player player(idle_animations_paths);  node 0, animations 0,1,2,3 - idle
+        for (auto& path : attack1_animations_paths) { animator.AddAnimation(path); }
+        for (auto& path : attack2_animations_paths) { animator.AddAnimation(path); }
+        for (auto& path : attack3_animations_paths) { animator.AddAnimation(path); }
+        for (auto& path : attack4_animations_paths) { animator.AddAnimation(path); }
+    }
+    // Add nodes to the animator
+    {
+        animator.AddNode({ 4,5,6,7 }); // node 1, animations 4,5,6,7 - running
 
-	for (auto& path : running_animations_paths) { animator.AddAnimation(path); }
+        animator.AddNode({ 8,9,10,11 }); // node 2, animations 8,9,10,11 - attack1
+        animator.AddNode({ 12,13,14,15 }); // node 3, animations 12,13,14,15 - attack2
+        animator.AddNode({ 16,17,18,19 }); // node 4, animations 16,17,18,19 - attack3
+        animator.AddNode({ 20,21,22,23 }); // node 5, animations 20,21,22,23 - attack4
+    }
+    // Add animator variables
+    {
+        animator.AddInteger("horizontal", 0);
+        animator.AddInteger("vertical", 0);
+        animator.AddBoolean("running", false);
+        animator.AddTrigger("attack", false);
+    }
+    // Configure connections and their conditions
+    {
+        animator.AddConnection(0, 1, false); // connection 0, idle -> running
+        animator.AddConnectionConditionAND(0, "boolean", "running", "==", true);
 
-	for (auto& path : attack1_animations_paths) { animator.AddAnimation(path); }
-	for (auto& path : attack2_animations_paths) { animator.AddAnimation(path); }
-	for (auto& path : attack3_animations_paths) { animator.AddAnimation(path); }
-	for (auto& path : attack4_animations_paths) { animator.AddAnimation(path); }
+        animator.AddConnection(1, 0, false); // connection 1, running -> idle
+        animator.AddConnectionConditionAND(1, "boolean", "running", "==", false);
 
-	animator.AddNode({ 4,5,6,7 }); // node 1, animations 4,5,6,7 - running
+        animator.AddConnection(0, 2, false); // connection 2, idle -> attack1
+        animator.AddConnectionConditionAND(2, "trigger", "attack", "==", true);
+        animator.AddConnection(1, 2, false); // connection 3, running -> attack1
+        animator.AddConnectionConditionAND(3, "trigger", "attack", "==", true);
 
-	animator.AddNode({ 8,9,10,11 }); // node 2, animations 8,9,10,11 - attack1
-	animator.AddNode({ 12,13,14,15 }); // node 3, animations 12,13,14,15 - attack2
-	animator.AddNode({ 16,17,18,19 }); // node 4, animations 16,17,18,19 - attack3
-	animator.AddNode({ 20,21,22,23 }); // node 5, animations 20,21,22,23 - attack4
+        animator.AddConnection(2, 0, true); // connection 4, attack1 -> idle
+        animator.AddConnectionConditionAND(4, "trigger", "attack", "==", false);
+        animator.AddConnection(2, 3, true); // connection 5, attack1 -> attack2
+        animator.AddConnectionConditionAND(5, "trigger", "attack", "==", true);
 
-	animator.AddInteger("horizontal", 0);
-	animator.AddInteger("vertical", 0);
-	animator.AddBoolean("running", false);
-	animator.AddTrigger("attack", false);
+        animator.AddConnection(3, 0, true); // connection 6, attack2 -> idle
+        animator.AddConnectionConditionAND(6, "trigger", "attack", "==", false);
+        animator.AddConnection(3, 4, true); // connection 7, attack2 -> attack3
+        animator.AddConnectionConditionAND(7, "trigger", "attack", "==", true);
 
-	animator.AddConnection(0, 1, false); // connection 0, idle -> running
-	animator.AddConnectionConditionAND(0, "boolean", "running", "==", true);
+        animator.AddConnection(4, 0, true); // connection 8, attack3 -> idle
+        animator.AddConnectionConditionAND(8, "trigger", "attack", "==", false);
+        animator.AddConnection(4, 5, true); // connection 9, attack3 -> attack4
+        animator.AddConnectionConditionAND(9, "trigger", "attack", "==", true);
 
-	animator.AddConnection(1, 0, false); // connection 1, running -> idle
-	animator.AddConnectionConditionAND(1, "boolean", "running", "==", false);
+        animator.AddConnection(5, 0, true); // connection 10, attack4 -> idle
+    }
 
-	animator.AddConnection(0, 2, false); // connection 2, idle -> attack1
-	animator.AddConnectionConditionAND(2, "trigger", "attack", "==", true);
-	animator.AddConnection(1, 2, false); // connection 3, running -> attack1
-	animator.AddConnectionConditionAND(3, "trigger", "attack", "==", true);
-
-	animator.AddConnection(2, 0, true); // connection 4, attack1 -> idle
-	animator.AddConnectionConditionAND(4, "trigger", "attack", "==", false);
-	animator.AddConnection(2, 3, true); // connection 5, attack1 -> attack2
-	animator.AddConnectionConditionAND(5, "trigger", "attack", "==", true);
-
-	animator.AddConnection(3, 0, true); // connection 6, attack2 -> idle
-	animator.AddConnectionConditionAND(6, "trigger", "attack", "==", false);
-	animator.AddConnection(3, 4, true); // connection 7, attack2 -> attack3
-	animator.AddConnectionConditionAND(7, "trigger", "attack", "==", true);
-
-	animator.AddConnection(4, 0, true); // connection 8, attack3 -> idle
-	animator.AddConnectionConditionAND(8, "trigger", "attack", "==", false);
-	animator.AddConnection(4, 5, true); // connection 9, attack3 -> attack4
-	animator.AddConnectionConditionAND(9, "trigger", "attack", "==", true);
-
-	animator.AddConnection(5, 0, true); // connection 10, attack4 -> idle
-
-	animator.SetActiveNode(0);
-	SetPosition({ 70,60 });
+    animator.SetActiveNode(0); // Set idle animation as active
+    animator.SetInteger("horizontal", 0); animator.SetInteger("vertical", 1); // Have player forward downwards
 }
 
 Player::Player()
@@ -102,7 +108,6 @@ void Player::CheckForInput()
 	next_move_cooldown = (clock_t)(CLOCKS_PER_SEC / move_speed);
 	animator.SetBoolean("running", false);
 
-	bool animation_just_started = clock() > animator.GetAnimationStartTime() && clock() < animator.GetAnimationStartTime() + 5;
 	bool animation_near_end = clock() > animator.GetAnimationEndTime() - 5 && clock() < animator.GetAnimationEndTime();
 	bool any_attack_node_active = animator.GetNodeActive(2) || animator.GetNodeActive(3) || animator.GetNodeActive(4) || animator.GetNodeActive(5);
 

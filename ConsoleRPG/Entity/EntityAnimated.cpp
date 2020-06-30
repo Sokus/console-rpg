@@ -11,7 +11,7 @@ EntityAnimated::EntityAnimated(std::string idle_animation_path)
 
 	animator.AddNode((int)animator.GetAnimationsSize() - 1);
 
-	animator.SetActiveNode(0);
+    animator.SetActiveNode(0);
 };
 
 EntityAnimated::EntityAnimated(std::vector<std::string> idle_animations_paths)

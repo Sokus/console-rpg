@@ -13,5 +13,6 @@ Player.o
 BufferQueueElement.o
 GFXE.o
 Scene.o
+SceneManager.o
 Terrain.o
 main.o
