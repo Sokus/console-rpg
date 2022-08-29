@@ -2,21 +2,21 @@
 
 SceneManager::SceneManager()
 {
-    std::vector<std::string> idle_animations_paths = { "../Files/Player/Idle/idle_right.txt",
-                                                       "../Files/Player/Idle/idle_up.txt",
-                                                       "../Files/Player/Idle/idle_left.txt",
-                                                       "../Files/Player/Idle/idle_down.txt" };
+    std::vector<std::string> idle_animations_paths = { RESOURCE_PATH "/Player/Idle/idle_right.txt",
+                                                       RESOURCE_PATH "/Player/Idle/idle_up.txt",
+                                                       RESOURCE_PATH "/Player/Idle/idle_left.txt",
+                                                       RESOURCE_PATH "/Player/Idle/idle_down.txt" };
     this->player=*(new Player(idle_animations_paths));
     this->player.SetID(1);
     this->player.SetPosition({80,52});
 
     // Initialise Scene 0
     {
-        scenes.emplace_back(*(new Scene(&player, "../Files/Maps/map02/map02_color_data.txt",
-                                        "../Files/Maps/map02/map02_hitbox_data.txt",
-                                        "../Files/Maps/map02/map02_shadow_data.txt")));
+        scenes.emplace_back(*(new Scene(&player, RESOURCE_PATH "/Maps/map02/map02_color_data.txt",
+                                        RESOURCE_PATH "/Maps/map02/map02_hitbox_data.txt",
+                                        RESOURCE_PATH "/Maps/map02/map02_shadow_data.txt")));
 
-        EntityAnimated tree("../Files/pink_tree.txt");
+        EntityAnimated tree(RESOURCE_PATH "/pink_tree.txt");
         {
             tree.SetID(2);
             tree.SetHitboxCorners(0, { {-1,0},{2,0} });
@@ -33,7 +33,7 @@ SceneManager::SceneManager()
             scenes.back().AddEntityAnimated(tree);
         }
 
-        EntityAnimated tree_flipped("../Files/pink_tree_flipped.txt");
+        EntityAnimated tree_flipped(RESOURCE_PATH "/pink_tree_flipped.txt");
         {
             tree_flipped.SetID(2);
             tree_flipped.SetHitboxCorners(0, { {-1,0},{2,0} });
@@ -50,11 +50,11 @@ SceneManager::SceneManager()
 
     // Initialise Scene 1
     {
-        scenes.emplace_back(*(new Scene(&player, "../Files/Maps/map02/map02_color_data.txt",
-                                        "../Files/Maps/map02/map02_hitbox_data.txt",
-                                        "../Files/Maps/map02/map02_shadow_data.txt")));
+        scenes.emplace_back(*(new Scene(&player, RESOURCE_PATH "/Maps/map02/map02_color_data.txt",
+                                        RESOURCE_PATH "/Maps/map02/map02_hitbox_data.txt",
+                                        RESOURCE_PATH "/Maps/map02/map02_shadow_data.txt")));
 
-        EntityAnimated tree("../Files/pink_tree.txt");
+        EntityAnimated tree(RESOURCE_PATH "/pink_tree.txt");
         tree.SetPosition({ 65,45 });
         tree.SetID(2);
         tree.SetHitboxCorners(0, { {-1,0},{2,1} });

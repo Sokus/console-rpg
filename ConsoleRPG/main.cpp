@@ -9,6 +9,7 @@
 
 int main()
 {
+
     GFXE window;
     SceneManager sceneManager;
 
@@ -24,7 +25,7 @@ int main()
     {
         if (clock() > nextUpdate)
         {
-            nextUpdate = clock() + CLOCKS_PER_SEC / updatesPerSecond;
+            nextUpdate = clock() + (clock_t)((float)CLOCKS_PER_SEC / updatesPerSecond);
 
             sceneManager.Update();
             window.SetCameraOffset(sceneManager.GetPlayerPosition());
@@ -32,7 +33,7 @@ int main()
 
         if (clock() > nextFrame)
         {
-            nextFrame = clock() + CLOCKS_PER_SEC / framesPerSecond;
+            nextFrame = clock() + (clock_t)((float)CLOCKS_PER_SEC / framesPerSecond);
 
             window.AddToBuffer(sceneManager.GetColorData(), 0, 0, INT_MIN, true);
 

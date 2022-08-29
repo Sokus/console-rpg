@@ -2,30 +2,30 @@
 
 void Player::InitialisePlayer()
 {
-    std::vector<std::string> running_animations_paths = { "../Files/Player/Running/running_right.txt",
-                                                            "../Files/Player/Running/running_up.txt",
-                                                            "../Files/Player/Running/running_left.txt",
-                                                            "../Files/Player/Running/running_down.txt" };
+    std::vector<std::string> running_animations_paths = { RESOURCE_PATH "/Player/Running/running_right.txt",
+                                                            RESOURCE_PATH "/Player/Running/running_up.txt",
+                                                            RESOURCE_PATH "/Player/Running/running_left.txt",
+                                                            RESOURCE_PATH "/Player/Running/running_down.txt" };
 
-    std::vector<std::string> attack1_animations_paths = { "../Files/Player/Attacks/Attack1/attack_right_1.txt",
-                                                            "../Files/Player/Attacks/Attack1/attack_up_1.txt",
-                                                            "../Files/Player/Attacks/Attack1/attack_left_1.txt",
-                                                            "../Files/Player/Attacks/Attack1/attack_down_1.txt" };
+    std::vector<std::string> attack1_animations_paths = { RESOURCE_PATH "/Player/Attacks/Attack1/attack_right_1.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack1/attack_up_1.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack1/attack_left_1.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack1/attack_down_1.txt" };
 
-    std::vector<std::string> attack2_animations_paths = { "../Files/Player/Attacks/Attack2/attack_right_2.txt",
-                                                            "../Files/Player/Attacks/Attack2/attack_up_2.txt",
-                                                            "../Files/Player/Attacks/Attack2/attack_left_2.txt",
-                                                            "../Files/Player/Attacks/Attack2/attack_down_2.txt" };
+    std::vector<std::string> attack2_animations_paths = { RESOURCE_PATH "/Player/Attacks/Attack2/attack_right_2.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack2/attack_up_2.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack2/attack_left_2.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack2/attack_down_2.txt" };
 
-    std::vector<std::string> attack3_animations_paths = { "../Files/Player/Attacks/Attack3/attack_right_3.txt",
-                                                            "../Files/Player/Attacks/Attack3/attack_up_3.txt",
-                                                            "../Files/Player/Attacks/Attack3/attack_left_3.txt",
-                                                            "../Files/Player/Attacks/Attack3/attack_down_3.txt" };
+    std::vector<std::string> attack3_animations_paths = { RESOURCE_PATH "/Player/Attacks/Attack3/attack_right_3.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack3/attack_up_3.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack3/attack_left_3.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack3/attack_down_3.txt" };
 
-    std::vector<std::string> attack4_animations_paths = { "../Files/Player/Attacks/Attack4/attack_right_4.txt",
-                                                            "../Files/Player/Attacks/Attack4/attack_up_4.txt",
-                                                            "../Files/Player/Attacks/Attack4/attack_left_4.txt",
-                                                            "../Files/Player/Attacks/Attack4/attack_down_4.txt" };
+    std::vector<std::string> attack4_animations_paths = { RESOURCE_PATH "/Player/Attacks/Attack4/attack_right_4.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack4/attack_up_4.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack4/attack_left_4.txt",
+                                                            RESOURCE_PATH "/Player/Attacks/Attack4/attack_down_4.txt" };
     // Add animations to the animator
     {
         for (auto& path : running_animations_paths) { animator.AddAnimation(path); }
@@ -131,7 +131,7 @@ void Player::CheckForInput()
 			input.y++;
 		}
 	}
-	
+
 	if (!any_attack_node_active)
 	{
 		if (!GetAsyncKeyState(VK_SPACE))
@@ -167,7 +167,7 @@ void Player::CheckForInput()
 
 	if (any_attack_node_active)
 	{
-		next_move_cooldown = CLOCKS_PER_SEC / attack_move_speed;
+		next_move_cooldown = (clock_t)((float)CLOCKS_PER_SEC / attack_move_speed);
 		if (animation_near_end)
 		{
 			if (GetAsyncKeyState(VK_SPACE))
