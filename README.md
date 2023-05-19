@@ -1,17 +1,19 @@
 # ConsoleRPG
- This projects main purpose is to create a game, entirely under console terminal without any graphic libraries. The only ones used are mostly libraries like Windows.h, string, vector, math.h, etc.
-All the textures are saved in .txt files, where every pixel is represented by ID (every available color is indexed, I would say there are about seven houndred of them).
-The most important thing in the project is how Windows.h library lets us modify attributes of the console:
+This projects main purpose is to create a game, entirely under console terminal without any graphic libraries - it was the first project I have ever worked on. Apart from system headers and standard library this project has no dependencies.
 
-```cpp
-HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-SetConsoleTextAttribute(hConsole, number);
-```
+https://github.com/Sokus/console-rpg/assets/26815390/de0f842e-efbf-4dc1-a4cb-390b03f39786
 
-Code shown above lets us change the color of letters and the background to predefined combination. The console has 16 available colors, which theoretically gives us 256 combinations, but we have to remember that some of the combinations wouldnt be of much use - for example blue letters on blue background etc. 
-Additionally, I used 3 ASCII characters, that let us trick human eye into seeing more colors. Using them should give us 4 times as much colors (3 ASCII characters + space as blank pixel), but if we take situations that look identical into consideration we will be left with exactly 735 colors.
-Here are some links that show how the game currently looks like, what ASCII characters are used and how they look up close:
-
-![Look of the game](https://github.com/Sokus/ConsoleRPG/blob/master/images/game.png)
-![Close up](https://github.com/Sokus/ConsoleRPG/blob/master/images/close-up.png)
-![ASCII Characters](https://github.com/Sokus/ConsoleRPG/blob/master/images/ascii.png)
+This project is dependent on two Windows API functions, first one for getting the standard output handle:
+```c
+HANDLE WINAPI GetStdHandle(
+    _In_ DWORD nStdHandle
+);
+```  
+And the second one that lets us change the color used in the terminal:
+```c
+BOOL WINAPI SetConsoleTextAttribute(
+    _In_ HANDLE hConsoleOutput,
+    _In_ WORD   wAttributes
+);
+```  
+It has only 16 colors to choose from, but by creatively using some ASCII characters (for example ▓▓▒▒░░) we could easily increase the number of perceived colors available to 784. All textures are stored as a series of numbers (color indices) in .txt files.
